@@ -1,15 +1,22 @@
-# 🚀 Welcome to your new awesome project!
+# `ably-js` Web Worker example
 
-This project has been created using **webpack-cli**, you can now run
+This provides a simple example of how to use [`ably-js`](https://github.com/ably/ably-js) from within a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API), following the instructions in `ably-js`’s `README`.
 
-```
-npm run build
-```
+It was written for manually testing the Webpack version 5 migration in https://github.com/ably/ably-js/issues/1184, but I think serves as a generally useful example.
 
-or
+## Usage
 
-```
-yarn build
-```
+### How to run it
 
-to bundle your application
+1. Copy `.env.example` to `.env`, and replace `insert_key_here` with your Ably API key.
+2. Run `npm install`.
+3. Run `npm run serve`. This will launch a web browser.
+
+### Expected results after running
+
+You should see the following log messages in your browser’s console (the last two may appear in the opposite order):
+
+- `Hello World, from worker!`
+- `Attached to channel`
+- `Published to Ably`
+- `Got message from Ably`
