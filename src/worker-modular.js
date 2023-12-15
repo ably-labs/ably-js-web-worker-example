@@ -1,7 +1,13 @@
 // Taken from "WebWorkers" in https://github.com/ably/ably-js#supported-platforms
-import Ably from 'ably';
+import {
+  BaseRealtime,
+  WebSocketTransport,
+  FetchRequest,
+  RealtimePresence,
+  Rest,
+} from 'ably/modules';
 
-console.log('Hello World from worker!');
+console.log('Hello World from modular worker!');
 
 const key = process.env.ABLY_KEY;
 
@@ -9,7 +15,15 @@ if (key === undefined || key.length === 0) {
   throw Error('ABLY_KEY not set in .env file. See README for instructions.');
 }
 
-const realtime = new Ably.Realtime({ key });
+const realtime = new BaseRealtime(
+  { key },
+  {
+    WebSocketTransport,
+    FetchRequest,
+    RealtimePresence,
+    Rest,
+  }
+);
 
 const channel = realtime.channels.get('someChannel');
 
@@ -22,7 +36,7 @@ channel
       console.log('Got message from Ably: ', message);
     });
 
-    return channel.publish('someName', { foo: 'bar' });
+    return channel.publish('someName', { foo: 'bar-modular' });
   })
   .then(() => console.log('Published to Ably'))
   .catch((error) => console.log('Caught error: ', error));

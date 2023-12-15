@@ -21,6 +21,16 @@ You should see the following log messages in your browser’s console (the last 
 - `Published to Ably`
 - `Got message from Ably`
 
+### Using modular variant of the library
+
+See [worker-modular.js](./src/worker-modular.js) for the example on how to use [modular variant](https://github.com/ably/ably-js/tree/integration/v2?tab=readme-ov-file#modular-tree-shakable-variant) of `ably-js` library.
+
+Uncomment next line in [index.js](./src/index.js) to create a Web Worker using modular variant:
+
+```javascript
+// new Worker(new URL('./worker-modular.js', import.meta.url));
+```
+
 ## Testing a non-published version of `ably-js`
 
 These steps use `npm pack`, which emits a `.tgz` file similar to that uploaded by `npm publish`.
