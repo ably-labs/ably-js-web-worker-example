@@ -17,6 +17,6 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "ably": "^1.2.39"
+    "ably": "file:./ably-2.3.1-xhr-more-logs.tgz"
   }
 }
