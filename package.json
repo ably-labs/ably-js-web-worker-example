@@ -17,6 +17,6 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "ably": "^1.2.39"
+    "ably": "^2.4.0"
   }
 }
